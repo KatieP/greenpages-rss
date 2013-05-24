@@ -1,0 +1,98 @@
+RSS Technical Guide 
+For greenpag.es content partners 
+
+Welcome! Did you ever think RSS was a little dull? Well, RSS can be extremely exciting! 
+Greenpag.es publishes the news and media releases from the world’s environmental groups 
+and we can do this automatically via an RSS feed. The greenpag.es geolocation system tags
+each post by location and topic and distributes each post to other greenpag.es members 
+around the world. This allows the members to connect with the issues they care about, 
+near their hometown. To do this job well, we need some help from you to get your RSS 
+squeaky clean, so that many more people will see the amazing work you do!
+
+More information about RSS
+http://feed2.w3.org/docs/rss2.html
+www.rssboard.org/rss-specification
+www.feedburner.com
+
+Feed Type
+Atom/RSS
+Most wordpress and major CMS sites have an inbuilt RSS feed
+
+Style
+1. Include the whole story: Include the full text of the news article or media release in the feed. 
+Please no partial articles or excerpts. You may include links, author references, images and embedded youtube 
+or vimeo videos.
+
+2. The content must be created by the organisation: The greenpag.es model is based on publishing material 
+that is created by primary sources. We publish high quality news, reports, thought leadership and media 
+releases that are created by NGOs, industry groups and universities. The platform is not available for 
+journalists, bloggers or syndicated/aggregated news sources. 
+
+3. Make the first image a winner! The first image in the feed will be automatically shown on the homepage 
+and is also the image shown on Facebook shares. Ensure the first image in the post is the most newsworthy 
+and that it is not the organisation’s logo. If your articles do not include images, greengage.es will randomly 
+assign a generic environmental stock image such as a leaf or a river to your post.
+
+Data we publish
+
+	<item>
+  		<pubDate> Date </pubDate>
+  		<title> Article title </title>
+  		<author> Author Name </author>
+  		<content>	 Make sure this tag contains the full 
+		   		 text of the article! </content> 
+	</item>
+
+BEWARE - THESE  5  COMMON  ERRORS  WILL  INVOLVE  YOUR RSS FEED  BEING  REJECTED BY GREENPAG.ES!
+
+Error 1: Incomplete body text
+Bug: We will not accept RSS feeds that only publish the title, or only a small portion of text, 
+or do not reveal the whole story in the RSS feed.
+
+Fix: Ensure your feed publishes the full article’s text, from beggining to end, within the <content> tag.
+
+Error 2: Broken Images
+Bug: We will need to take down feeds that re-publish with broken images and links. This can occur when 
+relative uris are used in the <img src=””> attribute and the <a href=””> attribute when an RSS feed is 
+served from a different server other than the original one that does not have the image stored on it under that file path, such as http://feedproxy.google.com/. 
+
+For example, original content is hosted on http://yoursite.org/news/original-content.php, in that page there’s an image with a relative uri in the src attribute i.e. <img src=”/awesome-image.png” /> and your rss feed comes from http://someothersite.feedproxy/rss/.  The reason this will break is if relative uri’s are used in image <img src=”” /> and link <a href=””></a> tags our RSS aggregator will resolve the relative uri to a url pointing to the source of the feed.  If the feed originates from http://yoursite.org the relative uri will be appended to this and the file will be found. However if the feed comes from http://someothersite and the uri is appended to this, the image file will not be found - hence the broken image. All relative links in this scenario will break for the same reason.
+  
+Fix: Use an explicit url in the src attribute such as <img src=”http://mywebsite.org/image.jpg”> instead of a relative uri such as <img src=”/image.jpg”> if your rss feed is being served from another serve. When we auto-publish your feed, we will inform you if your feed has an image error and work with you to help fix the bug.
+
+Error 3: Multiple Languages
+Bug: We will not publish feeds that repeat an identical article in multiple languages such as the same article repeated in English, French, German and Spanish.
+
+Fix: Ensure each language has it’s own unique RSS feed.
+
+Error 4: Mixing Media Coverage and Press Releases Together
+Bug: We will not publish feeds that include media articles published by other media companies such as Forbes or New York Times in the mix. All of the articles in the content partner’s RSS feed must be originally created by the content partner.
+
+Fix: Make one feed for ‘press coverage you have received’ and a seperate feed for ‘press releases and news that you create’. Greenpag.es will publish the latter feed.
+
+Error 5: Mixing Events and Media Releases Together
+Bug: We will not publish feeds to the ‘news’ section that include a high proportion of event notifications. Whilst an occasional media release about an event is acceptable as part of your organisation’s ‘news’, regular event notifications are not suitable for the ‘news’ section. 
+
+Fix: Create seperate RSS feeds for event notifications and media releases. Events can be published in the events section of Greenpag.es manually or by RSS, but they must be provided as seperarate feeds for the two different post types.
+
+
+
+Top Problem Issues - We will accept these issues in the feed, but we recommend they are fixed. 
+
+> Not using an image: We will publish articles with no image, however we strongly urge content partners to add images to their feeds. Articles with images have a 320% greater response rate. It’s the picture that leads the story, much moreso than the headline!
+
+> Using an image that is too small, i.e. 100 px wide: Images look best on greenpag.es when they are between 400 and 600 pixels wide. We will accept feeds with small images, however we strongly reccomended you size your images within this range to achieve the best impact.
+
+> High volumes of articles published at once: Occasionally a large NGO will publish up to 30 stories at one time. When this occurs, the homepage of greenpag.es will show only these stories. Many of these stories are ‘lost’ because our popularity score algorithm can’t give them a chance to sufficiently propogate through to our members. Each article will receive more views if it is spaced out with at least 1 hour between each post. 
+
+> Avoid custom embedded social media bars: No need to worry, we already have a social media bar for each story! Often embedded social media links, bars or buttons within RSS can format badly or just not work entirely. They also confuse the user because it provides them with two clashing social media bars on a story.
+
+> Elimininate all inline styling: Please avoid all inline styling of tags for colour, font etc. As they will cause a conflict with greenpag.es CSS and most likely will end up looking awful. Valid html tags such as <p></p>, <div></div>, <span></span> etc are fine. On the other hand: <div style=”width: 5px, font: comic sans, color:magenta”>THIS IS NOT FINE</div>.  
+
+> Feeds that include topics other than environment or sustainability: If your organisation has a broad focus, please make a feed that is specific to environmental issues. We are happy to include issues of human rights and justice, however some social issues move too far beyond of our focus. For example, news posts on social issues such as spirituality or domestic violence would be outside greenpag.es charter. We will delete any articles that depart widely from environment and sustainability issues.
+
+Try a Tumblr or Wordpress site 
+Is your organisation’s website a bit of a dinosaur? Or maybe it’s expensive to get your creative agency to make changes? It’s dead simple to set up a wordpress or tumblr site and they have automated RSS included. There are also several ‘DIY website’ platforms such as weebly.com, squarespace.com or wix.com that are super easy to use. You can create your own media site complete with RSS in less than a day’s work!
+
+Need some help?
+Our technical team are more that happy to help.  The more good quality RSS feeds we have, the better!  Call us anytime on 650 280 8142 or email Jesse Browne at jb@greenpag.es to discuss how to get your website set up.
